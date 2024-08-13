@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+bool isSubsequence(char* s,char* t);
+
+int
+main(){
+char* s = "abc";
+char* t = "ahbgdc";
+bool result;
+
+result = isSubsequence(s,t);
+printf(" Result is %d \n", result);
+
+return 0;
+}
+
+bool isSubsequence(char* s, char* t){
+int counter;
+int i,j;
+
+counter = 0;
+i = 0;
+j= 0;
+	while(j < strlen(t) && i<strlen(s)){
+		//printf("t[j]: %c\n", t[j]);
+                //printf("s[i]: %c\n", s[i]);
+		if(t[j] == s[i]){
+			//printf("t[j]: %c\n", t[j]);
+			//printf("s[i]: %c\n", s[i]);
+			i++;
+			counter++;
+		}
+		j++;
+	}
+	printf("counter: %d\n", counter);
+	if(counter >= strlen(s))
+		return true;
+	else
+		return false;
+}
+
